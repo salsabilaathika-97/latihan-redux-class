@@ -1,10 +1,15 @@
 import React from "react";
 import {useState} from "react";
 import axios from 'axios';
+import {useDispatch, useSelector} from "react-redux";
+import {getRegister} from "../redux/actions/authAction";
 
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const {auth} = useSelector((state) => state);
+
 
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -13,6 +18,12 @@ const Register = () => {
     const handlePassword = (e) => {
         setPassword(e.target.value);
     }
+
+    const handleRegister = () => {
+        dispatch(getRegister(email, password))
+    }
+
+    console.log(auth);
     return (
         <div style = {{ width:"100%" }}>
             <div style = {{ width: "400px", margin: "0 auto" }}>
@@ -25,7 +36,10 @@ const Register = () => {
                     <label>Password</label>
                     <input onChange={(e) => handlePassword(e)} type="password" />
                 </div>
-                <button style = {{ width: "100%", marginTop: "12px" }}>Register</button>
+                <button onClick = {handleRegister} style = {{ width: "100%", marginTop: "12px" }}>Register</button>
+                {
+                    !!auth.token.length && <h1>Selamat</h1>
+                }
             </div>
         </div>
     )

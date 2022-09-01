@@ -1,15 +1,15 @@
 import TYPES from "../types";
 
 const initialState = {
-    data: "",
+    token: "",
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case TYPES.FETCH_DATA:
+        case TYPES.POST_REGIS:
             return {
                 ...state,
-                data: action.payload
+                token: action.payload
             }
         default:
             return state;
