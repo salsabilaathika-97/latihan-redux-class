@@ -18,14 +18,28 @@
  
 // export default connect(mapStateToProps)(Home);
 
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {useEffect} from "react";
+import { getData } from "../redux/actions/dataAction";
 
 const Home = () => {
+    const dispatch = useDispatch();
     const {dataUser} = useSelector((state)=> state);
-    console.log(dataUser);
+    
+    useEffect(() => {
+        dispatch(getData());
+    }, []);
+
     return (
         <div>
-            <h1>{dataUser.data}</h1>
+            {
+                dataUser.data.map(item => (
+                    <div>
+                        <h1>{item.first_name}</h1>
+                        <img src = {item.avatar} />
+                    </div>
+                ))
+            }
         </div>
     )
 }

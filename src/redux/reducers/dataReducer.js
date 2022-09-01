@@ -1,7 +1,7 @@
 import TYPES from "../types";
 
 const initialState = {
-    data: "test",
+    data: [],
 }
 
 const dataReducer = (state=initialState, action) => {
