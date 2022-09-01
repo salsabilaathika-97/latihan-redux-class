@@ -1,10 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-import Home from './component/Home';
+import Home from './Page/Home';
+import {Route, Routes, BrowserRouter} from "react-router-dom"
+import Register from './Page/Register';
 
 function App() {
   return (
-    <Home />
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element = {<Home />} />
+          <Route path="/register" element = {<Register />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
