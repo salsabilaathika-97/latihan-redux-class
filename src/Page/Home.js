@@ -39,6 +39,9 @@ const Home = () => {
             <Link to ="/login">
                 <button>Login</button>
             </Link>
+            <Link to ="/login-class">
+                <button>Login Class</button>
+            </Link>
             <h1>Home Page</h1>
             {
                 dataUser.data.map(item => (
