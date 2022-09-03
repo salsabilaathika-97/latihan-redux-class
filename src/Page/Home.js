@@ -36,6 +36,9 @@ const Home = () => {
             <Link to ="/register">
                 <button>Register</button>
             </Link>
+            <Link to ="/login">
+                <button>Login</button>
+            </Link>
             <h1>Home Page</h1>
             {
                 dataUser.data.map(item => (
