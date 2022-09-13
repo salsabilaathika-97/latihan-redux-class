@@ -16,11 +16,13 @@ const Home = () => {
                 <button>Login Class</button>
             </Link>
             <h1>Home Page</h1>
+            <div style = {{ height: 'auto', overflowX: 'hidden' }}>
             <div className='row' style = {{ padding: 10 }}>
-                    <div className='col' style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', marginTop: 8, marginBottom: 40, justifyContent: 'center'}}>
-                        <Card />
-                    </div>
+                <div className='col' style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', marginTop: 8, marginBottom: 40, justifyContent: 'center'}}>
+                    <Card />
                 </div>
+            </div>
+            </div>
         </div>
     )
 }
