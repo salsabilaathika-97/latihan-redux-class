@@ -16,8 +16,8 @@ const Card = () => {
                 dataUser.data.map(item => (
                     <div style={{ padding: 10 }}>
                             <div className="card" style={{padding: 25}}>
-                                <img className="rounded-t-lg" src={item.avatar} style={{maxHeight: 160, maxWidth: 270}} alt="Gambar Mobil" />
-                                <div className="tracking-tight text-gray-900 dark:text-white" style={{marginTop: 16}}>{item.first_name}</div>
+                                <img className="rounded-t-lg" src={item.image} style={{maxHeight: 160, maxWidth: 270}} alt="Gambar Mobil" />
+                                <div className="tracking-tight text-gray-900 dark:text-white" style={{marginTop: 16}}>{item.name}</div>
                                     <div className="inline-flex justify-content-center py-2 px-3 text-sm font-bold text-center text-white bg-green-500 w-100 rounded-lg hover:bg-green-700 focus:ring-4 focus:outline-none">
                                         Pilih Mobil
                                     </div >
