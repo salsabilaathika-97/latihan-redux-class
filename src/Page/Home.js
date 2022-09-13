@@ -1,15 +1,8 @@
-import {useSelector, useDispatch} from "react-redux";
-import {useEffect} from "react";
-import { getData } from "../redux/actions/dataAction";
+
 import {Link} from "react-router-dom";
+import Card from "../components";
 
 const Home = () => {
-    const dispatch = useDispatch();
-    const {dataUser} = useSelector((state)=> state);
-    
-    useEffect(() => {
-        dispatch(getData());
-    }, []);
 
     return (
         <div>
@@ -23,14 +16,7 @@ const Home = () => {
                 <button>Login Class</button>
             </Link>
             <h1>Home Page</h1>
-            {
-                dataUser.data.map(item => (
-                    <div>
-                        <h1>{item.first_name}</h1>
-                        <img src = {item.avatar} />    
-                    </div>
-                ))
-            }
+            <Card />
         </div>
     )
 }
