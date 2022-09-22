@@ -1,6 +1,12 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useEffect } from 'react';
+import axios from "axios";
+import { useDispatch } from 'react-redux';
+import swal from "sweetalert";
+import { handleCar } from '../../redux/actions/carAction';
+import { ModalImg } from '../../assets';
 
 const style = {
     position: 'absolute',
@@ -15,7 +21,31 @@ const style = {
   };
 
 const ModalDelete = (props) => {
-    const {handleClose, open} = props
+    const {handleOpen, handleClose, open, carId} = props
+    const dispatch = useDispatch();
+
+    const handleDelete = (id) => {
+        axios
+        .delete(`https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`)
+        .then((res)=> {
+            console.log(res.status);
+            if (res.status === 200) {
+                swal({
+                    title: "Deleted!",
+                    text: "Data berhasil dihapus",
+                    icon: "success",
+                    timer: 2000,
+                })
+                handleOpen()
+            }
+        })
+        .catch((err) => console.log(err.message))
+    }
+
+    useEffect(() => {
+        dispatch(handleCar())
+    }, [handleDelete])
+
     return (
         <Modal 
                                         open={open}
@@ -24,10 +54,14 @@ const ModalDelete = (props) => {
                                         aria-describedby="modal-modal-description"
                                     >
                                         <Box sx = {style}>
-                                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                                            Hallo
+                                        <img src = {ModalImg} alt = "car" />
+                                        <Typography id="modal-modal-title" variant="h3" component="h2">
+                                            Menghapus data mobil
                                         </Typography>
-                                        <button onClick={handleClose}>Hapus data</button>
+                                        <p>Setelah dihapus, data mobil tidak dapat dikembalikan, Yakin ingin
+            menghapus?</p>
+                                        <button onClick={() => handleDelete(carId)}>Ya</button>
+                                        {/* <button onClick={handleClose}>Tidak</button> */}
                                         </Box>
                                    </Modal>
     )
