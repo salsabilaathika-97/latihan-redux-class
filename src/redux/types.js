@@ -3,7 +3,8 @@ const TYPES = {
     FETCH_DATA: 'FETCH_DATA',
     LOADED_DATA: 'LOADED_DATA',
     POST_REGIS: 'POST_REGIS',
-    POST_LOGIN: 'POST_LOGIN'
+    POST_LOGIN: 'POST_LOGIN',
+    GET_CARS: "GET_CARS",
 }
 
 export default TYPES;
