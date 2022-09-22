@@ -5,15 +5,28 @@ import { getData, getMockData } from "../../redux/actions/dataAction";
 import { NoImage } from "../../assets";
 import { Link } from "react-router-dom";
 import ModalDelete from "../ModalDelete";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
 const Card = () => {
     const dispatch = useDispatch();
     const {dataUser} = useSelector((state)=> state);
-    const [showModal, setShowModal] = useState(false);
-
-    const handleModal = () => {
-        setShowModal(!showModal)
-    }
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     
     useEffect(() => {
         dispatch(getData());
@@ -39,13 +52,25 @@ const Card = () => {
                                     {!!item.updatedAt ? <p style = {{ fontFamily: 'arial', fontSize: 10 }}>Updated at {item.updatedAt}</p> : <p style = {{ fontFamily: 'arial' }}>Tidak ada update baru</p>}
                                 </div>
                                 <div class="inline-flex" role="group">
-                                    <button onClick={handleModal} type="button" class="text-red-700 hover:text-white border-2 border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                                    <button onClick={handleOpen} type="button" class="text-red-700 hover:text-white border-2 border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline w-6 h-6">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                                         </svg>
                                     Delete
                                     </button>
-                                    {showModal && <ModalDelete handleModal={handleModal}/>}
+                                   <Modal 
+                                        open={open}
+                                        onClose={handleClose}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                    >
+                                        <Box sx = {style}>
+                                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                                            {item.name}
+                                        </Typography>
+                                        <button>Hapus data</button>
+                                        </Box>
+                                   </Modal>
                                     <Link to = {`/edit/${item.id}`}>
                                     <button type="button" class="text-white hover:text-white border-2 border-[#5CB85F] bg-[#5CB85F] hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline w-6 h-6">
