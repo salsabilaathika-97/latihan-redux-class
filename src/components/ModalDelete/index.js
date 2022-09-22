@@ -21,7 +21,7 @@ const style = {
   };
 
 const ModalDelete = (props) => {
-    const {handleOpen, handleClose, open, carId} = props
+    const { handleClose, open, carId} = props
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
@@ -36,7 +36,7 @@ const ModalDelete = (props) => {
                     icon: "success",
                     timer: 2000,
                 })
-                handleOpen()
+                handleClose()
             }
         })
         .catch((err) => console.log(err.message))

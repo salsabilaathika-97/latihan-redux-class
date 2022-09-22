@@ -43,7 +43,7 @@ const Card = ({carId}) => {
                                         </svg>
                                     Delete
                                     </button>
-                                    <ModalDelete carId = {carId} open={open} handleOpen={handleOpen} handleClose={handleClose} />
+                                    <ModalDelete carId = {item.id} open={open} handleClose={handleClose} />
                                     <Link to = {`/edit/${item.id}`}>
                                     <button type="button" class="text-white hover:text-white border-2 border-[#5CB85F] bg-[#5CB85F] hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline w-6 h-6">

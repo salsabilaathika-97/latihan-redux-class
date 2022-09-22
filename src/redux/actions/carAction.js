@@ -1,7 +1,7 @@
 import axios from "axios"
 import TYPES from "../types"
 
-export const handleCar = (id) => (dispatch) => {
+export const handleCar = () => (dispatch) => {
   axios
   .get("https://bootcamp-rent-car.herokuapp.com/admin/car")
   .then((res) => {
