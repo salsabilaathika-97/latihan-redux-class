@@ -6,7 +6,7 @@ export const handleCar = (id) => (dispatch) => {
       .get(`https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`)
       .then((res) => {
         dispatch({
-          type: TYPES.GET_CAR,
+          type: TYPES.GET_CARS,
           payload: res.data,
         })
       })
