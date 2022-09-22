@@ -5,21 +5,6 @@ import { getData, getMockData } from "../../redux/actions/dataAction";
 import { NoImage } from "../../assets";
 import { Link } from "react-router-dom";
 import ModalDelete from "../ModalDelete";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
 
 const Card = () => {
     const dispatch = useDispatch();
@@ -58,19 +43,7 @@ const Card = () => {
                                         </svg>
                                     Delete
                                     </button>
-                                   <Modal 
-                                        open={open}
-                                        onClose={handleClose}
-                                        aria-labelledby="modal-modal-title"
-                                        aria-describedby="modal-modal-description"
-                                    >
-                                        <Box sx = {style}>
-                                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                                            {item.name}
-                                        </Typography>
-                                        <button>Hapus data</button>
-                                        </Box>
-                                   </Modal>
+                                    <ModalDelete open={open} handleClose={handleClose} />
                                     <Link to = {`/edit/${item.id}`}>
                                     <button type="button" class="text-white hover:text-white border-2 border-[#5CB85F] bg-[#5CB85F] hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline w-6 h-6">
