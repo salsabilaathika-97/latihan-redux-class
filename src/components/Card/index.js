@@ -6,7 +6,7 @@ import { NoImage } from "../../assets";
 import { Link } from "react-router-dom";
 import ModalDelete from "../ModalDelete";
 
-const Card = ({carId}) => {
+const Card = () => {
     const dispatch = useDispatch();
     const {dataUser} = useSelector((state)=> state);
     const [open, setOpen] = useState(false);

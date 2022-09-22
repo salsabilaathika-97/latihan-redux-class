@@ -44,7 +44,8 @@ const ModalDelete = (props) => {
 
     useEffect(() => {
         dispatch(handleCar())
-    }, [handleDelete])
+        console.log(carId);
+    }, [])
 
     return (
         <Modal 
