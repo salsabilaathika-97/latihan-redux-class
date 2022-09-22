@@ -8,7 +8,6 @@ const carReducer = (state = initialState, action) => {
   switch (action.type) {
     case TYPES.GET_CARS:
       return {
-        ...state,
         cars: action.payload,
       }
     default:
