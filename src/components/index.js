@@ -8,7 +8,7 @@ const Card = () => {
     const {dataUser} = useSelector((state)=> state);
     
     useEffect(() => {
-        dispatch(getMockData());
+        dispatch(getData());
     }, []);
 
     const formatCurrency = (number) => {
