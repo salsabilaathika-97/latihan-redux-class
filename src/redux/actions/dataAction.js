@@ -3,12 +3,25 @@ import TYPES from "../types";
 
 export const getData = () => (dispatch) => {
     axios
-      .get("https://reqres.in/api/users?page=2")
+      .get("https://bootcamp-rent-car.herokuapp.com/admin/car")
       .then((res) => {
         dispatch({
             type: TYPES.FETCH_DATA,
-            payload: res.data.data,
+            payload: res.data,
         })
       })
       .catch((err) => console.log(err));
+}
+
+export const getMockData = () => (dispatch) => {
+    axios
+    .get("http://localhost:3001/admin/car")
+    .then((res) => {
+      dispatch({
+          type: TYPES.FETCH_DATA,
+          payload: res.data,
+      })
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
 }
