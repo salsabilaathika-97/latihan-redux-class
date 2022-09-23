@@ -11,6 +11,23 @@
 @import "./sass/abstracts/button";
 @import "./sass/abstracts/header";
 
+//# components
+@import "./sass/layouts/Header";
+@import "./sass/layouts/Sidebar";
+@import "./sass/layouts/Navbar";
+// login
+@import "./sass/components/Login/ErrorLoginCard";
+@import "./sass/components/Login/Login";
+@import "./sass/components/Login/FormLogin";
+// dashboard
+@import "./sass/components/Dashboard/Breadcrumb";
+@import "./sass/components/Dashboard/Dashboard";
+@import "./sass/components/Dashboard/ChartTitle";
+@import "./sass/components/Dashboard/ChartFilter";
+@import "./sass/components/Dashboard/Chart";
+@import "./sass/components/Dashboard/ListTitle";
+@import "./sass/components/Dashboard/ListTable";
+
 // cars
 @import "./sass/components/Car/CarList.scss";
 @import "./sass/components/Car/CarFilter.scss";
@@ -20,8 +37,27 @@
 @import "./sass/components/Car/ButtonDelete.scss";
 @import "./sass/components/Car/ModalDelete.scss";
 
+// cars/add
+@import "./sass/components/Car/CarAdd/CarAdd.scss";
+@import "./sass/components/Car/CarAdd/CarAddTitle.scss";
+@import "./sass/components/Car/CarAdd/CarAddForm.scss";
+@import "./sass/components/Car/CarAdd/CarAddButton.scss";
+
+// cars/edit
+@import "./sass/components/Car/CarEdit/CarEdit.scss";
+@import "./sass/components/Car/CarEdit/CarEditTitle.scss";
+@import "./sass/components/Car/CarEdit/CarEditForm.scss";
+@import "./sass/components/Car/CarEdit/CarEditButton.scss";
+
 //# utilities
 @import "./sass/abstracts/utilities";
+
+//# pages
+@import "./sass/pages/DashboardPage.scss";
+@import "./sass/pages/CarsPage.scss";
+@import "./sass/pages/AddCarPage.scss";
+@import "./sass/pages/EditCarPage.scss";
+
 
 body {
   margin: 0;
