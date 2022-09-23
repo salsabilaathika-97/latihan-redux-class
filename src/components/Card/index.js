@@ -9,11 +9,6 @@ import ModalDelete from "../ModalDelete";
 const Card = () => {
     const dispatch = useDispatch();
     const {dataUser} = useSelector((state)=> state);
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => {
-        setOpen(true)
-    };
-    const handleClose = () => setOpen(false);
     
     useEffect(() => {
         dispatch(getData());
