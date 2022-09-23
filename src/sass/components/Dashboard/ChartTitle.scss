@@ -1,0 +1,15 @@
+.chart-title {
+  margin-top: 60px;
+
+  .chart-title-container {
+    display: flex;
+    width: 350px;
+    gap: 10px;
+
+    figure {
+      width: 5px;
+      height: 24px;
+      background-color: $primary;
+    }
+  }
+}

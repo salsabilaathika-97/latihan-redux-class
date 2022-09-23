@@ -1,0 +1,35 @@
+.sidebar {
+  width: 80px;
+  height: 100vh;
+  background: $primary;
+  position: fixed;
+  z-index: 11;
+
+  .sidebar-logo {
+    width: 80px;
+    height: 70px;
+    flex-direction: column;
+
+    span {
+      width: 34px;
+      height: 34px;
+      background: $secondary;
+    }
+  }
+
+  .sidebar-menu {
+    cursor: pointer;
+
+    .active > div {
+      background: #5568c1;
+    }
+
+    .menu-dashboard,
+    .menu-cars {
+      flex-direction: column;
+      width: 80px;
+      height: 70px;
+      color: white;
+    }
+  }
+}
