@@ -1,6 +1,3 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
 import { useEffect } from 'react';
 import axios from "axios";
 import { useDispatch } from 'react-redux';
@@ -8,22 +5,10 @@ import swal from "sweetalert";
 import { handleCar } from '../../../redux/actions/carAction';
 import { ModalImg } from '../../../assets';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
 const ModalDelete = (props) => {
-    const { handleModal, open, carId} = props
+    const { handleModal, carId} = props
     const dispatch = useDispatch();
-
+    
     const handleDelete = (id) => {
         console.log(carId);
         axios
@@ -48,23 +33,26 @@ const ModalDelete = (props) => {
     }, [])
 
     return (
-        <Modal 
-                                        open={open}
-                                        onClose={handleModal}
-                                        aria-labelledby="modal-modal-title"
-                                        aria-describedby="modal-modal-description"
-                                    >
-                                        <Box sx = {style}>
-                                        <img src = {ModalImg} alt = "car" />
-                                        <Typography id="modal-modal-title" variant="h3" component="h2">
-                                            Menghapus data mobil
-                                        </Typography>
-                                        <p>Setelah dihapus, data mobil tidak dapat dikembalikan, Yakin ingin
-            menghapus?</p>
-                                        <button onClick={() => handleDelete(carId)}>Ya</button>
-                                        
-                                        </Box>
-                                   </Modal>
+        <div className="modal-delete__backdrop df-center">
+        <div className="modal df-center">
+          <div className="modal-content df-center">
+            <img src={ModalImg} alt="car" />
+            <h3>Menghapus Data Mobil</h3>
+            <p>
+              Setelah dihapus, data mobil tidak dapat dikembalikan, Yakin ingin
+              menghapus?
+            </p>
+            <div className="modal-button">
+              <button onClick={() => handleDelete(carId)} className="btn-primary">
+                Ya
+              </button>
+              <button onClick={handleModal} className="btn-outlined-primary">
+                Tidak
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     )
 }
 
