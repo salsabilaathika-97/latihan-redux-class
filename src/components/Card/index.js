@@ -4,7 +4,6 @@ import {useEffect} from "react";
 import { getData, getMockData } from "../../redux/actions/dataAction";
 import { NoImage } from "../../assets";
 import { Link } from "react-router-dom";
-import ModalDelete from "./ModalDelete";
 import ButtonDelete from "./ButtonDelete";
 
 const Card = () => {
