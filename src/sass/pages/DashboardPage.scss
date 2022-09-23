@@ -1,0 +1,14 @@
+.dashboard-page {
+  display: flex;
+  position: relative;
+
+  .nav-container {
+    width: 250px;
+    height: 200vh;
+    left: 80px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: white;
+  }
+}

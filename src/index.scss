@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//# abstracts
+@import "./sass/abstracts/variables";
+@import "./sass/abstracts/base";
+@import "./sass/abstracts/breakpoints";
+@import "./sass/abstracts/grid";
+@import "./sass/abstracts/mixins";
+@import "./sass/abstracts/button";
+@import "./sass/abstracts/header";
+
+// cars
+@import "./sass/components/Car/CarList.scss";
+@import "./sass/components/Car/CarFilter.scss";
+@import "./sass/components/Car/CarListTitle.scss";
+@import "./sass/components/Car/CarCard.scss";
+@import "./sass/components/Car/ButtonEdit.scss";
+@import "./sass/components/Car/ButtonDelete.scss";
+@import "./sass/components/Car/ModalDelete.scss";
+
+//# utilities
+@import "./sass/abstracts/utilities";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,96 @@
+@mixin btn($bg: $success) {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  border: 1px solid $bg;
+  padding: $base-padding $base-padding * 2;
+  border-radius: $base-border-radius / 3;
+  background-color: $bg;
+}
+
+.btn {
+  @include btn;
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $success;
+    color: $success;
+  }
+}
+
+.btn-primary {
+  @include btn($bg: $primary);
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+}
+
+.btn-danger {
+  @include btn($bg: $danger);
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $danger;
+    color: $danger;
+  }
+}
+
+.btn-outlined {
+  @include btn;
+  background-color: transparent;
+  border: 1px solid $success;
+  color: $success;
+  &:hover {
+    @include btn;
+  }
+}
+
+.btn-outlined-primary {
+  @include btn;
+  background-color: transparent;
+  border: 1px solid $primary;
+  color: $primary;
+  &:hover {
+    @include btn($bg: $primary);
+  }
+}
+
+.btn-outlined-danger {
+  @include btn;
+  background-color: transparent;
+  border: 1px solid $danger;
+  color: $danger;
+  &:hover {
+    @include btn($bg: $danger);
+  }
+}
+
+button.btn-active {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  border: 1px solid $primary;
+  padding: $base-padding $base-padding * 2;
+  border-radius: $base-border-radius / 3;
+  background-color: $primary;
+}
+
+button.btn-passive {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid $primary;
+  padding: $base-padding $base-padding * 2;
+  border-radius: $base-border-radius / 3;
+  background-color: white;
+  border: 1px solid $primary;
+  color: $primary;
+  opacity: 0.7;
+}
+
+button.btn-passive:hover {
+  opacity: 1;
+  background: transparent;
+}

@@ -1,0 +1,15 @@
+.cars-page {
+  display: flex;
+  position: relative;
+  width: 95%;
+
+  .nav-container {
+    width: 250px;
+    height: 1400vh;
+    left: 80px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: white;
+  }
+}

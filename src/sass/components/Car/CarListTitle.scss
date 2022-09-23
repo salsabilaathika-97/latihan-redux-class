@@ -1,0 +1,15 @@
+.car-list-title {
+  margin-top: 30px;
+
+  .car-list-title-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
