@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalDelete from "./ModalDelete";
 
-const ButtonDelete = () => {
+const ButtonDelete = ({carId}) => {
     const [showModal, setShowModal] = useState(false)
 
     const handleModal = () => {
@@ -16,7 +16,7 @@ const ButtonDelete = () => {
                 </svg>
             Delete
             </button>
-            <ModalDelete />
+            {showModal && <ModalDelete carId = {carId} handleModal={handleModal} />}
         </div>
     )
 }

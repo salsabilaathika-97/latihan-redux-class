@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import swal from "sweetalert";
-import { handleCar } from '../../redux/actions/carAction';
-import { ModalImg } from '../../assets';
+import { handleCar } from '../../../redux/actions/carAction';
+import { ModalImg } from '../../../assets';
 
 const style = {
     position: 'absolute',
@@ -21,7 +21,7 @@ const style = {
   };
 
 const ModalDelete = (props) => {
-    const { handleClose, open, carId} = props
+    const { handleModal, open, carId} = props
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
@@ -37,7 +37,7 @@ const ModalDelete = (props) => {
                     icon: "success",
                     timer: 2000,
                 })
-                handleClose()
+                handleModal()
             }
         })
         .catch((err) => console.log(err.message))
@@ -50,7 +50,7 @@ const ModalDelete = (props) => {
     return (
         <Modal 
                                         open={open}
-                                        onClose={handleClose}
+                                        onClose={handleModal}
                                         aria-labelledby="modal-modal-title"
                                         aria-describedby="modal-modal-description"
                                     >
@@ -62,7 +62,7 @@ const ModalDelete = (props) => {
                                         <p>Setelah dihapus, data mobil tidak dapat dikembalikan, Yakin ingin
             menghapus?</p>
                                         <button onClick={() => handleDelete(carId)}>Ya</button>
-                                        {/* <button onClick={handleClose}>Tidak</button> */}
+                                        
                                         </Box>
                                    </Modal>
     )
