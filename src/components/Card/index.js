@@ -4,7 +4,24 @@ import {useEffect} from "react";
 import { getData, getMockData } from "../../redux/actions/dataAction";
 import { NoImage } from "../../assets";
 import { Link } from "react-router-dom";
-import ModalDelete from "../ModalDelete";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { ModalImg } from '../../assets';
+import axios from "axios";
+import swal from "sweetalert";
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
 const Card = () => {
     const dispatch = useDispatch();
@@ -23,6 +40,25 @@ const Card = () => {
         let fNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         return "Rp. "+fNumber;
     }
+
+    const handleDelete = (id) => {
+        axios
+        .delete(`https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`)
+        .then((res)=> {
+            console.log(res.status);
+            if (res.status === 200) {
+                swal({
+                    title: "Deleted!",
+                    text: "Data berhasil dihapus",
+                    icon: "success",
+                    timer: 2000,
+                })
+                handleClose()
+            }
+        })
+        .catch((err) => console.log(err.message))
+    }
+
     return (
         <div className="grid gap-4 grid-cols-3 grid-rows-3">
            {
@@ -48,7 +84,23 @@ const Card = () => {
                                         </svg>
                                     Delete
                                     </button>
-                                    <ModalDelete carId = {item.id} open={open} handleClose={handleClose} />
+                                    <Modal 
+                                        open={open}
+                                        onClose={handleClose}
+                                        aria-labelledby="modal-modal-title"
+                                        aria-describedby="modal-modal-description"
+                                    >
+                                        <Box sx = {style}>
+                                        <img src = {ModalImg} alt = "car" />
+                                        <Typography id="modal-modal-title" variant="h3" component="h2">
+                                            Menghapus data mobil
+                                        </Typography>
+                                        <p>Setelah dihapus, data mobil tidak dapat dikembalikan, Yakin ingin
+                                        menghapus?</p>
+                                        <button onClick={() => handleDelete(item.id)}>Ya</button>
+                                        {/* <button onClick={handleClose}>Tidak</button> */}
+                                        </Box>
+                                   </Modal>
                                     <Link to = {`/edit/${item.id}`}>
                                     <button type="button" class="text-white hover:text-white border-2 border-[#5CB85F] bg-[#5CB85F] hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline w-6 h-6">
