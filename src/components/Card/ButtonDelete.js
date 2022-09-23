@@ -1,4 +1,7 @@
+import ModalDelete from "./ModalDelete";
+
 const ButtonDelete = () => {
+
     return (
         <div>
              <button onClick={() => {
@@ -10,6 +13,7 @@ const ButtonDelete = () => {
                 </svg>
             Delete
             </button>
+            <ModalDelete />
         </div>
     )
 }
