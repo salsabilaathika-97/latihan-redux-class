@@ -25,7 +25,7 @@ const ModalDelete = (props) => {
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
-        console.log(carId);
+        console.log("Id yg terhapus",carId);
         axios
         .delete(`https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`)
         .then((res)=> {
