@@ -5,10 +5,11 @@ import { getData, getMockData } from "../../redux/actions/dataAction";
 import { NoImage } from "../../assets";
 import { Link } from "react-router-dom";
 import ModalDelete from "../ModalDelete";
+import { handleCar } from "../../redux/actions/carAction";
 
 const Card = () => {
     const dispatch = useDispatch();
-    const {dataUser} = useSelector((state)=> state);
+    const {cars} = useSelector((state)=> state.car);
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(true)
@@ -16,7 +17,7 @@ const Card = () => {
     const handleClose = () => setOpen(false);
     
     useEffect(() => {
-        dispatch(getData());
+        dispatch(handleCar());
     }, []);
 
     const formatCurrency = (number) => {
@@ -26,7 +27,7 @@ const Card = () => {
     return (
         <div className="grid gap-4 grid-cols-3 grid-rows-3">
            {
-                dataUser.data.map(item => (
+                cars.map(item => (
                     <div className="inline-flex p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md" style={{ padding: 10 }}>
                             <div>
                                 <div style = {{ marginLeft: 16 }}>
@@ -48,7 +49,7 @@ const Card = () => {
                                         </svg>
                                     Delete
                                     </button>
-                                    <ModalDelete carId = {item.id} open={open} handleClose={handleClose} />
+                                    <ModalDelete item = {item} open={open} handleClose={handleClose} />
                                     <Link to = {`/edit/${item.id}`}>
                                     <button type="button" class="text-white hover:text-white border-2 border-[#5CB85F] bg-[#5CB85F] hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="inline w-6 h-6">

@@ -21,11 +21,11 @@ const style = {
   };
 
 const ModalDelete = (props) => {
-    const { handleClose, open, carId} = props
+    const { handleClose, open, item} = props
     const dispatch = useDispatch();
 
     const handleDelete = (id) => {
-        console.log("Id yg terhapus",carId);
+        console.log("Id yg terhapus", item.id);
         axios
         .delete(`https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`)
         .then((res)=> {
@@ -60,8 +60,8 @@ const ModalDelete = (props) => {
                                             Menghapus data mobil
                                         </Typography>
                                         <p>Setelah dihapus, data mobil tidak dapat dikembalikan, Yakin ingin
-            menghapus?</p>
-                                        <button onClick={() => handleDelete(carId)}>Ya</button>
+                                        menghapus? {item.name}</p>
+                                        <button onClick={() => handleDelete(item.id)}>Ya</button>
                                         {/* <button onClick={handleClose}>Tidak</button> */}
                                         </Box>
                                    </Modal>
