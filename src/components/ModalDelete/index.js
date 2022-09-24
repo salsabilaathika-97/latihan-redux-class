@@ -30,6 +30,7 @@ const ModalDelete = (props) => {
         .delete(`https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`)
         .then((res)=> {
             console.log(res.status);
+            console.log(res);
             if (res.status === 200) {
                 swal({
                     title: "Deleted!",
@@ -42,10 +43,6 @@ const ModalDelete = (props) => {
         })
         .catch((err) => console.log(err.message))
     }
-
-    useEffect(() => {
-        dispatch(handleCar())
-    }, [])
 
     return (
         <Modal 
